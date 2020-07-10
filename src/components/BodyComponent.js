@@ -24,19 +24,6 @@ import Loader from './Loader/Loader';
 import './BodyComponent.css';
 import './Filter/Filter.css';
 
-/*const useStyles = makeStyles((theme) => ({
-  footer: {
-    borderTop: `1px solid ${theme.palette.divider}`,
-    marginTop: theme.spacing(8),
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
-    [theme.breakpoints.up('sm')]: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6),
-    },
-  },
-}));
-*/
 const HeroContent = () => (
   <React.Fragment>
     <Container maxWidth="sm" component="main" className="heroContent">
@@ -58,46 +45,14 @@ class BodyComponent extends React.Component {
       citis: [],
       restaurants: [],
       isLoaded: false,
-      //inputValue: '',
-      //selectValue: '',
     };
-    //this.handleSelectCity = this.handleSelectCity.bind(this);
   }
-
-  /*componentDidMount() {
-    //this.getRestaurantsDefault(); // Default City = Toronto
-    
-    fetch('http://opentable.herokuapp.com/api/cities')
-    .then(res => res.json())
-    .then((data) => {
-      this.setState({ cities: data.cities });
-    })
-    .catch(console.log);
-  } */
-  /*async getRestaurantsDefault() {
-    try {
-        const restaurants = await axios.get(
-          `http://opentable.herokuapp.com/api/restaurants?city=toronto`
-        );
-        //console.log(restaurants.data.restaurants)
-        this.setState({
-            restaurants: restaurants.data.restaurants,
-            isLoaded: true
-        });
-        } catch (error) {
-        console.log({ error });
-    }
-  }*/
   async componentDidMount() {
     this.props.payLoad(); // Default City = Toronto
   }
 
   render() {
     const { isLoaded } = this.props;
-    //const { citySelected, inputValue, selectValue } = this.state;
-    //let cities = this.state.cities;
-    //console.log('cities=' + cities);
-    
     return (
       <div>
         <HeroContent />
