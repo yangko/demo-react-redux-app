@@ -9,7 +9,7 @@ export const SORT_BY = 'SORT_BY';
 
 export const loadRestaurants = citySelected => (dispatch) => {
   let cityName = citySelected ? citySelected : "Toronto";
-  //console.log('cityName' + cityName);
+  console.log('cityName' + cityName);
   const endpoint = `https://opentable.herokuapp.com/api/restaurants?city=${cityName}`;
   fetch(endpoint)
     .then((res) => res.json())
