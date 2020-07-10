@@ -1,8 +1,13 @@
 {
   "name": "yangko-react-restaurant-list",
   "version": "0.1.0",
+  "description": "A sample Node.js app using React-Redux with opentable API.",
+  "homepage": "https://yangko-react-restaurant-list.herokuapp.com/",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.0.0-rc.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "latest",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
