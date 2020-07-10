@@ -1,0 +1,10 @@
+:root {
+    --ul: {
+        margin: 0;
+        padding: 0;
+        listStyle: none;
+    }
+}
+.heroContent {
+    padding: 8, 0, 6;
+}

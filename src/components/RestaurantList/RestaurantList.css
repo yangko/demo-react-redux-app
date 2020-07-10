@@ -1,0 +1,21 @@
+.fullHeightCard {
+    height: 100%;
+    margin-top: 30px;
+}
+
+.cardHeader {
+    background-color: #00a1b1;
+}
+
+.cardPricing {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-bottom: 1vh;
+}
+
+.buttonAlignCenter {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1vh;
+}

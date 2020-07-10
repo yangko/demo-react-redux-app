@@ -1,0 +1,29 @@
+.filter-wrap {
+  background: #61DBFB; /* #00a1b1 */
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.field {
+  color: #333333;
+  border: solid 1px #999999;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 14px;
+  padding: 15px;
+  height: 58px;
+}
+
+.filter-field::-webkit-input-placeholder,
+.sort-field__option {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.filter-field {
+  flex: 0 0 20%;
+}
+
+.sort-field {
+  flex: 0 0 10%;
+}
