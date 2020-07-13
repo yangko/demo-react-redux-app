@@ -19,7 +19,7 @@ const HeroContent = () => (
         A Demo of SPA (Single Page Application)
       </Typography>
       <Typography variant="h5" align="center" color="textSecondary" component="p">
-        Search restaurants in worldwide cities, filtering and sorting feature enabled. Using RESTful API, Redux store, Webpack, Material-UI.
+        Search restaurants in your city (Toronto as default), filtering and sorting feature enabled. Using RESTful API, Redux store, Webpack, Material-UI.
       </Typography>
     </Container>
   </React.Fragment>
