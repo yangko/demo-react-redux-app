@@ -40,7 +40,7 @@ class Filter extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://opentable.herokuapp.com/api/cities')
+    fetch('/api/cities')
     .then(res => res.json())
     .then((data) => {
         this.setState({ cities: data.cities, isLoaded: true, })
