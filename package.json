@@ -43,5 +43,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://cors-anywhere.herokuapp.com/https://opentable.herokuapp.com"
+  "proxy": "https://opentable.herokuapp.com"
 }
