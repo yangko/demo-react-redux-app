@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { loadRestaurants, sortBy } from '../actions';
+import { loadRestaurants } from '../actions';
 import Filter from './Filter/Filter';
 import RestaurantList from './RestaurantList/RestaurantList';
 import Loader from './Loader/Loader';

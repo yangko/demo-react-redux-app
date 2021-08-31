@@ -49,7 +49,7 @@ const reducer = (state = initialState, action) => {
           )),
         };
       }
-
+      break;
     default:
       return state;
   }

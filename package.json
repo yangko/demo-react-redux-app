@@ -4,6 +4,11 @@
   "description": "A sample Node.js app using React-Redux with opentable API.",
   "homepage": "https://yangko-react-redux-app.herokuapp.com/",
   "private": true,
+  "main": "app.js",
+  "engines": {
+    "node": "~6.10.3",
+    "npm": "~5.6.0"
+  },
   "dependencies": {
     "@material-ui/core": "^4.0.0-rc.0",
     "@material-ui/icons": "^4.9.1",
@@ -26,7 +31,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
