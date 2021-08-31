@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { loadRestaurants } from '../actions';
+import { loadRestaurants, sortBy } from '../actions';
 import Filter from './Filter/Filter';
 import RestaurantList from './RestaurantList/RestaurantList';
 import Loader from './Loader/Loader';
@@ -16,10 +16,10 @@ const HeroContent = () => (
       <Typography component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
       </Typography>
       <Typography variant="h4" align="center" color="textSecondary" component="p">
-        A Demo of SPA (Single Page Application)
+        A Demo of The Star Wars API (https://swapi.dev/) SPA App
       </Typography>
       <Typography variant="h5" align="center" color="textSecondary" component="p">
-        Search restaurants in your city (Toronto as default), filtering and sorting feature enabled. Using RESTful API, Redux store, Webpack, Material-UI.
+        Select character from the dropdown ('Luke Skywalker' as the default), then show a list of movies the character casted. filtering and sorting feature enabled. Using RESTful API, Redux store, Webpack, Material-UI.
       </Typography>
     </Container>
   </React.Fragment>
@@ -37,7 +37,7 @@ class BodyComponent extends React.Component {
     };
   }
   async componentDidMount() {
-    this.props.payLoad(); // Default City = Toronto
+    this.props.payLoad(); // Default character: Luke Skywalker
   }
 
   render() {

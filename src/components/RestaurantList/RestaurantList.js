@@ -6,10 +6,10 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import CssBaseline from '@material-ui/core/CssBaseline';
+//import CardHeader from '@material-ui/core/CardHeader';
+//import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import StarIcon from '@material-ui/icons/StarBorder';
+//import StarIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import CardMedia from "@material-ui/core/CardMedia";
@@ -23,23 +23,22 @@ const styles = {
   },
 }
 
-const renderSwitch = (price) => {
-  switch (price) {
-    case 0:
-      return "";
-    case 1:
-      return "$";
-    case 2:
-      return "$$";
-    case 3:
-      return "$$$";
-    case 4:
-      return "$$$$";
-    case 5:
-      return "$$$$$";
-    default:
-      return "";
-  }
+const filmImage = {
+  'A New Hope': '/assets/images/a-new-hope.jpg',
+  'C-3PO': '/assets/images/c-3po.jpg',
+  'R2-D2': '/assets/images/r2-d2.jpg',
+  'Darth Vade': '/assets/images/darth-vade.jpg',
+  'Leia Organa': '/assets/images/leia-organa.jpg',
+  'Owen Lars': '/assets/images/owen-lars.jpg',
+  'Beru Whitesun lars': '/assets/images/beru-whitesun-lars.jpg',
+  'R5-D4': '/assets/images/r5-d4.jpg',
+  'Biggs Darklighter': '/assets/images/biggs-darklighter.jpg',
+  'Obi-Wan Kenobi': '/assets/images/obi-wan-kenobi.jpg',
+  'The Empire Strikes Back': '/assets/images/the-empire-strikes-back.jpg',
+  'Return of the Jedi': '/assets/images/return-of-the-Jedi.jpg',
+  'Revenge of the Sith': '/assets/images/revenge-of-the-sith.jpg',
+  'The Phantom Menace': '/assets/images/the-phantom-menace.jpg',
+  'Attack of the Clones': '/assets/images/attack-of-the-clones.jpg'
 }
 
 const RestaurantList = ({ restaurants }) => (
@@ -49,43 +48,43 @@ const RestaurantList = ({ restaurants }) => (
         <Grid container spacing={5} alignItems="flex-end">
           {restaurants.map((restaurant) => (
             // Enterprise card is full width at sm breakpoint
-            <Grid item key={restaurant.name} id={restaurant.id} xs={12} sm={restaurant.name === 'Enterprise' ? 12 : 6} md={4}>
+            <Grid item key={restaurant.title} id={restaurant.spisode_id} xs={12} sm={restaurant.title === 'Enterprise' ? 12 : 6} md={4}>
               <Card className="fullHeightCard">
                 <CardActionArea>
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2" align="center">
-                      {restaurant.name}
+                      {restaurant.title}
                     </Typography>
                     <Typography variant="body2" component="p">
-                      Address: {restaurant.address}
+                      <b>Episode ID:</b> {restaurant.episode_id}
                     </Typography>
                     <Typography variant="body2" component="p">
-                      City: {restaurant.city}
+                      <b>Director:</b> {restaurant.director}
                     </Typography>
                     <Typography variant="body2" component="p">
-                      Area: {restaurant.area}
+                      <b>Producer:</b>Producer: {restaurant.producer}
                     </Typography>
                     <Typography variant="body2" component="p">
-                      Tel: {restaurant.phone}
+                      <b>Release Date:</b> <font color="red">{restaurant.release_date}</font>
                     </Typography>
                     <Typography variant="body2" component="p">
-                      Price: $$$$
+                      <b>Opening Crawl:</b> {restaurant.opening_crawl}
                     </Typography>
                   </CardContent>
                   <CardMedia
                     className="media"
                     style={{
                       width: 'auto',
-                      height: '180px',
+                      height: '200px',
                     }}
-                    image={restaurant.image_url}
-                    title={restaurant.name}
+                    image={filmImage[restaurant.title]}
+                    title={restaurant.title}
                   />
                 </CardActionArea>
                 <CardActions>
                   <div className="buttonAlignCenter">
-                    <Button variant="outlined" color="primary" href={restaurant.reserve_url}>
-                      Reserve Table
+                    <Button variant="outlined" color="primary" href={restaurant.url}>
+                      Watch
                     </Button>
                   </div>
                 </CardActions>

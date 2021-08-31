@@ -27,24 +27,28 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         shownRestaurants: state.restaurants.filter(restaurant => (
-          restaurant.name.toLowerCase().includes((action.value).toLowerCase())
+          restaurant.title.toLowerCase().includes((action.value).toLowerCase())
         )),
       };
 
     case SORT_BY:
-      if (action.value === 'alphabetical') {
+      if (action.value === 'release_date') {
         return {
           ...state,
           shownRestaurants: [...state.shownRestaurants].sort((a, b) => (
-            a.name.localeCompare(b.name)
+            b.release_date.localeCompare(a.release_date)
           )),
         };
       }
 
-      return {
-        ...state,
-        shownRestaurants: [...state.shownRestaurants].sort((a, b) => a.age - b.age),
-      };
+      if (action.value === 'alphabetical') {
+        return {
+          ...state,
+          shownRestaurants: [...state.shownRestaurants].sort((a, b) => (
+            a.title.localeCompare(b.title)
+          )),
+        };
+      }
 
     default:
       return state;

@@ -30,7 +30,7 @@ class Filter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      citySelected: "Toronto",
+      citySelected: "Luke Skywalker",
       cities: [],
       isLoaded: false,
       inputValue: '',
@@ -40,10 +40,19 @@ class Filter extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/cities')
+    fetch('https://swapi.dev/api/people')
     .then(res => res.json())
     .then((data) => {
-        this.setState({ cities: data.cities, isLoaded: true, })
+        //this.setState({ cities: data.cities, isLoaded: true, })
+        let results = data.results;
+        console.log(results);
+        let characters = [];
+
+        results.forEach(element => {
+          characters.push(element.name);
+        });
+        
+        this.setState({ cities: characters, isLoaded: true, })
     })
     .catch(console.log);
   }
@@ -87,7 +96,7 @@ class Filter extends React.Component {
       return <div className="filter-wrap"> Loading ... </div>;
     } else {
       let cities = this.state.cities;
-
+      console.log(cities);
       return (
         <div className="filter-wrap">
           <ThemeProvider theme={theme}>
@@ -134,7 +143,7 @@ class Filter extends React.Component {
             >
               Sort by
             </option>
-            <option className="sort-field__option" value="age">Newest</option>
+            <option className="sort-field__option" value="release_date">Newest</option>
             <option
               className="sort-field__option"
               value="alphabetical"

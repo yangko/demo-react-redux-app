@@ -1,8 +1,8 @@
 {
-  "name": "yangko-react-restaurant-list",
+  "name": "yangko-react-redux-app",
   "version": "0.1.0",
   "description": "A sample Node.js app using React-Redux with opentable API.",
-  "homepage": "https://yangko-react-restaurant-list.herokuapp.com/",
+  "homepage": "https://yangko-react-redux-app.herokuapp.com/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.0.0-rc.0",
@@ -12,12 +12,13 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "cors-anywhere": "^0.4.4",
     "express": "^4.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
     "react-redux": "^7.2.0",
+    "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
@@ -42,5 +43,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://opentable.herokuapp.com"
+  "proxy": "https://cors-anywhere.herokuapp.com/https://opentable.herokuapp.com"
 }

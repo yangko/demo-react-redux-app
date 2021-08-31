@@ -9,7 +9,7 @@ const FooterComponent = () =>
             rel="noopener noreferrer"
             href="https://www.linkedin.com/in/yangko/"
             >
-            Copyright 2020. Yangko at hotmail.com
+            Copyright 2021. Yangko at hotmail.com
         </a>
     </div>
 
