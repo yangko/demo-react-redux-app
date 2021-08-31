@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { loadRestaurants } from '../actions';
+import { loadFilms } from '../actions';
 import Filter from './Filter/Filter';
-import RestaurantList from './RestaurantList/RestaurantList';
+import RestaurantList from './FilmList/FilmList';
 import Loader from './Loader/Loader';
 import './BodyComponent.css';
 import './Filter/Filter.css';
@@ -30,9 +30,9 @@ class BodyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      citySelected: "Toronto",
-      citis: [],
-      restaurants: [],
+      characterSelected: "Luke Skywalker",
+      characters: [],
+      films: [],
       isLoaded: false,
     };
   }
@@ -48,7 +48,7 @@ class BodyComponent extends React.Component {
         <Filter />
         { isLoaded
           ? 
-          <RestaurantList />
+          <FilmList />
           : <Loader />
         }
       </div>
@@ -57,11 +57,11 @@ class BodyComponent extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  isLoaded: state.isLoadedRestaurants,
+  isLoaded: state.isLoadedFilms,
 });
 
 const mapDispatchToProps = dispatch => ({
-  payLoad: () => dispatch(loadRestaurants()),
+  payLoad: () => dispatch(loadFilms()),
 });
 
 BodyComponent.propTypes = {

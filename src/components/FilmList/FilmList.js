@@ -15,7 +15,7 @@ import Container from '@material-ui/core/Container';
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import withStyles from "@material-ui/core/styles/withStyles"
-import './RestaurantList.css';
+import './FilmList.css';
 
 const styles = {
   fullHeightCard: {
@@ -41,34 +41,34 @@ const filmImage = {
   'Attack of the Clones': '/assets/images/attack-of-the-clones.jpg'
 }
 
-const RestaurantList = ({ restaurants }) => (
+const FilmList = ({ films }) => (
 
 	<React.Fragment>
 	<Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
-          {restaurants.map((restaurant) => (
+          {films.map((film) => (
             // Enterprise card is full width at sm breakpoint
-            <Grid item key={restaurant.title} id={restaurant.spisode_id} xs={12} sm={restaurant.title === 'Enterprise' ? 12 : 6} md={4}>
+            <Grid item key={film.title} id={film.spisode_id} xs={12} sm={film.title === 'Enterprise' ? 12 : 6} md={4}>
               <Card className="fullHeightCard">
                 <CardActionArea>
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2" align="center">
-                      {restaurant.title}
+                      {film.title}
                     </Typography>
                     <Typography variant="body2" component="p">
-                      <b>Episode ID:</b> {restaurant.episode_id}
+                      <b>Episode ID:</b> {film.episode_id}
                     </Typography>
                     <Typography variant="body2" component="p">
-                      <b>Director:</b> {restaurant.director}
+                      <b>Director:</b> {film.director}
                     </Typography>
                     <Typography variant="body2" component="p">
-                      <b>Producer:</b>Producer: {restaurant.producer}
+                      <b>Producer:</b>Producer: {film.producer}
                     </Typography>
                     <Typography variant="body2" component="p">
-                      <b>Release Date:</b> <font color="red">{restaurant.release_date}</font>
+                      <b>Release Date:</b> <font color="red">{film.release_date}</font>
                     </Typography>
                     <Typography variant="body2" component="p">
-                      <b>Opening Crawl:</b> {restaurant.opening_crawl}
+                      <b>Opening Crawl:</b> {film.opening_crawl}
                     </Typography>
                   </CardContent>
                   <CardMedia
@@ -77,13 +77,13 @@ const RestaurantList = ({ restaurants }) => (
                       width: 'auto',
                       height: '200px',
                     }}
-                    image={filmImage[restaurant.title]}
-                    title={restaurant.title}
+                    image={filmImage[film.title]}
+                    title={film.title}
                   />
                 </CardActionArea>
                 <CardActions>
                   <div className="buttonAlignCenter">
-                    <Button variant="outlined" color="primary" href={restaurant.url}>
+                    <Button variant="outlined" color="primary" href={film.url}>
                       Watch
                     </Button>
                   </div>
@@ -99,18 +99,18 @@ const RestaurantList = ({ restaurants }) => (
 
 const mapStateToProps = state => ({
   cities: state.cities,
-  restaurants: state.shownRestaurants,
+  films: state.shownFilms,
 });
 
-RestaurantList.propTypes = {
-	restaurants: PropTypes.arrayOf(PropTypes.object).isRequired,
-	addRestaurantToBasket: PropTypes.func.isRequired,
+FilmList.propTypes = {
+	films: PropTypes.arrayOf(PropTypes.object).isRequired,
+	addFilmToBasket: PropTypes.func.isRequired,
 };
 
-//export default connect(mapStateToProps)(RestaurantList);
+//export default connect(mapStateToProps)(FilmList);
 export default compose(
   withStyles(styles, {
-    name: 'RestaurantList',
+    name: 'FilmList',
   }),
   connect(mapStateToProps),
-)(RestaurantList);
+)(FilmList);

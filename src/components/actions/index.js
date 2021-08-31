@@ -1,57 +1,33 @@
-export const RESTAURANTS_RECEIVED = 'RESTAURANTS_RECEIVED';
-export const ADD_TO_BASKET = 'ADD_TO_BASKET';
-export const BASKET_ITEM_INCREASED = 'BASKET_ITEM_INCREASED';
-export const BASKET_ITEM_DECREASED = 'BASKET_ITEM_DECREASED';
-export const BASKET_ITEM_REMOVED = 'BASKET_ITEM_REMOVED';
-export const LIST_RESTAURANTS = 'LIST_RESTAURANTS';
-export const FILTER_RESTAURANTS = 'FILTER_RESTAURANTS';
+export const FILMS_RECEIVED = 'FILMS_RECEIVED';
+export const LIST_FILMS = 'LIST_FILMS';
+export const FILTER_FILMS = 'FILTER_FILMS';
 export const SORT_BY = 'SORT_BY';
 
-export const loadRestaurants = citySelected => (dispatch) => {
-  let cityName = citySelected ? citySelected : "Toronto";
-  console.log('cityName= ' + cityName);
-  const endpoint = `/api/restaurants?city=${cityName}`;
+export const loadFilms = characterSelected => (dispatch) => {
+  let characterName = characterSelected ? characterSelected : "Luke Skywalker";
+  console.log('characterName= ' + characterName);
+  const endpoint = `/api/films?character=${characterName}`;
   fetch(endpoint)
     .then((res) => res.json())
     .then((data) => {
-      let restaurants = data.restaurants;
-      dispatch(receiveRestaurants(restaurants))
+      let films = data.films;
+      dispatch(receiveFilms(films))
     })
     .catch(console.log);
 };
 
-export const receiveRestaurants = restaurants => ({
-  type: RESTAURANTS_RECEIVED,
-  restaurants,
+export const receiveFilms = films => ({
+  type: FILMS_RECEIVED,
+  films,
 });
 
-export const addToBasket = restaurantName => ({
-  type: ADD_TO_BASKET,
-  restaurantName,
-});
-
-export const increaseBasketItem = restaurantName => ({
-  type: BASKET_ITEM_INCREASED,
-  restaurantName,
-});
-
-export const decreaseBasketItem = restaurantName => ({
-  type: BASKET_ITEM_DECREASED,
-  restaurantName,
-});
-
-export const removeBasketItem = restaurantName => ({
-  type: BASKET_ITEM_REMOVED,
-  restaurantName,
-});
-
-export const listRestaurantsBy = citySelected => ({
-  type: LIST_RESTAURANTS,
-  citySelected
+export const listFilmsBy = characterSelected => ({
+  type: LIST_FILMS,
+  characterSelected
 });
 
 export const filterBy = value => ({
-  type: FILTER_RESTAURANTS,
+  type: FILTER_FILMS,
   value,
 });
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { loadRestaurants, filterBy, sortBy } from '../../actions';
+import { loadFilms, filterBy, sortBy } from '../../actions';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -30,8 +30,8 @@ class Filter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      citySelected: "Luke Skywalker",
-      cities: [],
+      characterSelected: "Luke Skywalker",
+      characters: [],
       isLoaded: false,
       inputValue: '',
       selectValue: '',
@@ -43,7 +43,7 @@ class Filter extends React.Component {
     fetch('https://swapi.dev/api/people')
     .then(res => res.json())
     .then((data) => {
-        //this.setState({ cities: data.cities, isLoaded: true, })
+        //this.setState({ characters: data.characters, isLoaded: true, })
         let results = data.results;
         console.log(results);
         let characters = [];
@@ -52,19 +52,19 @@ class Filter extends React.Component {
           characters.push(element.name);
         });
         
-        this.setState({ cities: characters, isLoaded: true, })
+        this.setState({ characters: characters, isLoaded: true, })
     })
     .catch(console.log);
   }
 
   handleSelectCity = (event, values) => {
     this.setState({
-      citySelected: values,
+      characterSelected: values,
     }, () => {
       // Update State With Redux
-      const { loadRestaurantsByValue } = this.props;
+      const { loadFilmsByValue } = this.props;
       
-      loadRestaurantsByValue(this.state.citySelected);
+      loadFilmsByValue(this.state.characterSelected);
     });
   }
 
@@ -89,14 +89,14 @@ class Filter extends React.Component {
   }
 
   render() {
-    const { isLoaded, citySelected, inputValue, selectValue } = this.state;
+    const { isLoaded, characterSelected, inputValue, selectValue } = this.state;
     //const { classes } = this.props;
 
     if ( !isLoaded) {
       return <div className="filter-wrap"> Loading ... </div>;
     } else {
-      let cities = this.state.cities;
-      console.log(cities);
+      let characters = this.state.characters;
+      console.log(characters);
       return (
         <div className="filter-wrap">
           <ThemeProvider theme={theme}>
@@ -110,12 +110,12 @@ class Filter extends React.Component {
                 paddingTop: 0,
               }}
               onChange={this.handleSelectCity}
-              options={cities}
+              options={characters}
               renderInput={(params) => (
                 <TextField
                     {...params}
                     className="field filter-field without-padding"
-                    placeholder={citySelected}
+                    placeholder={characterSelected}
                     margin="normal"
                     variant="outlined"
                     InputProps={{ ...params.InputProps, type: 'search', }}
@@ -158,18 +158,18 @@ class Filter extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  citySelected: state.citySelected,
+  characterSelected: state.characterSelected,
   isLoaded: state.isLoaded,
 });
 
 const mapDispatchToProps = dispatch => ({
-  loadRestaurantsByValue: value => dispatch(loadRestaurants(value)),
+  loadFilmsByValue: value => dispatch(loadFilms(value)),
   filterByValue: value => dispatch(filterBy(value)),
   sortByValue: value => dispatch(sortBy(value)),
 });
 
 Filter.propTypes = {
-  loadRestaurantsByValue: PropTypes.func.isRequired,
+  loadFilmsByValue: PropTypes.func.isRequired,
   filterByValue: PropTypes.func.isRequired,
   sortByValue: PropTypes.func.isRequired,
 };
